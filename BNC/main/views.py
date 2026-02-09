@@ -19,10 +19,9 @@ def news(response):
     today_news = {}
     for i in rows:
         title = i[1]
-        summary = i[2]
-        url = i[3]
-        date = i[4]
-        analysis_text = i[5]
+        url = i[5]
+        date = i[3]
+        analysis_text = i[4]
 
         #change the markdown text into html text
         if analysis_text:
