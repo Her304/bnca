@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 import psycopg2
 import markdown
-
+import os
 
 def home(response):
     return render(response, "home.html", {})
