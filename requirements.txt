@@ -8,4 +8,4 @@ beautifulsoup4
 gunicorn
 markdown
 whitenoise
-newscatcher
+feedparser>=6.0.11
