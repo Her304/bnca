@@ -8,18 +8,20 @@ from openai import OpenAI
 
 #load the api keys from .env
 load_dotenv()
-client = OpenAI()
+client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+
+DATABASE_URL = os.environ.get('DATABASE_URL')
+
+try:
+    conn = psycopg2.connect(DATABASE_URL)
+    print("Successfully connected to the Railway database!")
+except Exception as e:
+    print(f"Database connection failed: {e}")
+
+
 
 
 #connect to database
-conn = psycopg2.connect(
-        dbname="news_db",
-        user="hercules",
-        password="",
-        host="localhost",
-        port="5432"
-    )
-
 cur = conn.cursor()
 
 #catch the news
