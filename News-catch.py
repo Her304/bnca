@@ -1,5 +1,5 @@
 import psycopg2
-from newscatcher import Newscatcher
+import feedparser
 from datetime import datetime
 import os
 from pathlib import Path
@@ -25,14 +25,13 @@ except Exception as e:
 cur = conn.cursor()
 
 #catch the news
-nc = Newscatcher(website = 'cnbc.com', topic = "business")
-results = nc.get_news()
+news_feed = feedparser.parse("https://news.google.com/rss/search?q=business")
 
     # results.keys()
     # 'url', 'topic', 'language', 'country', 'articles'
 
 # Get the articles
-articles = results['articles']
+articles = news_feed.entries
 
 #dictionary for today news, for storing top 10 business news from all the news
 today_news = {}
@@ -44,7 +43,7 @@ for i in range(0,10):
         p_date= datetime(*p_date[:6])
     else:
         p_date= None
-    today_news[f"{articles[i]['title']}"] = [f"{articles[i]['summary']}", f"{articles[i]['link']}", p_date]
+    today_news[f"{articles[i].get('title', 'No Title')}"] = [f"{articles[i].get('summary', 'No Summary')}", f"{articles[i].get('link', '#')}", p_date]
 
     #title : [summary, full url, date]
 
