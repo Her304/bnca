@@ -9,13 +9,7 @@ def home(response):
 
 def news(response):
     #connect to the database
-    conn = psycopg2.connect(
-        dbname="news_db",
-        user="hercules",
-        password="",
-        host="localhost",
-        port="5432"
-    )
+    conn = psycopg2.connect(os.environ.get('DATABASE_URL'))
     cur = conn.cursor()
 
     #get all th info from database
