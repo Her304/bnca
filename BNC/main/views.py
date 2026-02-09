@@ -5,7 +5,7 @@ import markdown
 
 
 def home(response):
-    return render(response, "home.html",{})
+    return render(response, "main/home.html", {})
 
 def news(response):
     #connect to the database
