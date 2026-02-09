@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-sh(k^f@=xv(%ez*o16q70*j!uy9@++gu!v7ww2c06k3n^xh&ae
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['bnca-production.up.railway.app', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -119,3 +119,4 @@ STATIC_URL = "static/"
 STATICFILES_DIRS = [
     BASE_DIR / "main" / "static",
 ]
+
