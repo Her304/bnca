@@ -29,7 +29,7 @@ def news(response):
         else:
             html_analysis = "We apologise for missing the analysis"
 
-        today_news[title] = [summary, url, date, html_analysis]
+        today_news[title] = [url, date, html_analysis]
     
     cur.close()
     conn.close()
